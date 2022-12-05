@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Check Your Internet Connectivity</title>
+</head>
+<body>
+	<div class="wrapper">You are <span id="result"></span></div>
+</body>
+</html>
+
+<style type="text/css">
+body {background: #1d1d1d; color: #fff;}
+.wrapper {font-family: exo; font-size: 50px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+</style>
+
+<script type="text/javascript">
+/* check your internet connection */ {
+	let result = document.querySelector("#result");
+	
+	window.addEventListener("online", showResult);
+	window.addEventListener("offline", showResult);
+	
+	function showResult(){
+		if(navigator.onLine){
+			result.innerHTML = "Online";
+			result.style.color = "lightgreen";
+		}	else {
+				result.innerHTML = "Offline";
+				result.style.color = "red";
+			}
+	}
+	showResult();
+}
+</script>
